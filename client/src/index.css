@@ -1,0 +1,57 @@
+:root {
+    --main-blue: #00001c;
+    --pane-blue: #02062a;
+    --light-blue: #48cae4;
+    --white: white;
+}
+
+#root {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: "Darker Grotesque", sans-serif;
+    color: var(--white);
+    font-weight: 700;
+}
+
+p,
+a,
+button,
+span,
+input,
+textarea,
+select {
+    font-family: "Darker Grotesque", sans-serif;
+    color: var(--white);
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: var(--main-blue);
+}
+
+a:hover,
+button:hover {
+    cursor: pointer;
+}
