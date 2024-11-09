@@ -5,9 +5,59 @@
     align-items: center;
     justify-content: center;
     font-family: Arial, sans-serif;
-    background-color: #92799a;
+    background-color: #c294c3;
     height: 100vh;
     text-align: center;
+  }
+  
+  /* Styling for the Guess buttons (Heads and Tails) */
+  .guess-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;  /* Space between the buttons */
+  }
+  
+  .guess-buttons button {
+    font-size: 20px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .guess-buttons button:hover {
+    background-color: #45a049;
+    transform: translateY(-3px); /* Slight lifting effect */
+  }
+  
+  .guess-buttons button:active {
+    transform: translateY(0);
+  }
+  
+  /* Styling for the Play Again (Reset) button */
+  .reset-button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 18px;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .reset-button:hover {
+    background-color: #e64a19;
+  }
+  
+  .reset-button:active {
+    transform: translateY(0);
   }
   
   /* Cursor toggle button */
@@ -29,9 +79,13 @@
     background-color: #45a049;
   }
   
-  /* Apply hand cursor */
+  .cursor-toggle button:active {
+    transform: translateY(0);
+  }
+  
+  /* Apply hand emoji cursor */
   .game-container.hand-cursor {
-    cursor: pointer;  /* This applies the hand cursor when the state is true */
+    cursor: "✋";  /* Using the emoji directly as the cursor */
   }
   
   /* Coin flip animation */
@@ -47,7 +101,7 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: #525252; /* Coin color */
+    background-color: #656565; /* Coin color */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,4 +130,3 @@
       transform: rotateX(360deg);
     }
   }
-  

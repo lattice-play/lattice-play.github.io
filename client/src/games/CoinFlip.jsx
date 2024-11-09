@@ -42,7 +42,7 @@ export default function CoinFlipGame() {
       <h1>Guess Heads or Tails</h1>
 
       <div className="score">
-        <p>Score: {score}</p>
+        <p>Coins: {score}</p>
       </div>
 
       {/* Guess buttons - only show if gameStatus is empty (i.e., game is not over) */}
