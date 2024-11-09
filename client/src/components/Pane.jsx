@@ -1,7 +1,7 @@
 import "../css/Pane.css";
 import { useState, useEffect } from "react";
 
-export default function Pane({ image, header, info, type, color }) {
+export default function Pane({ image, header, info, type, color, to }) {
     const [isImage, setIsImage] = useState(false);
 
     useEffect(() => {
@@ -35,7 +35,7 @@ export default function Pane({ image, header, info, type, color }) {
     const paneStyle = getStylingForType(type);
 
     return (
-        <a className="pane-wrapper" style={paneStyle}>
+        <a className="pane-wrapper" style={paneStyle} href={to}>
             <h1 className="pane-header">{header}</h1>
             <p className="pane-information">{info}</p>
             <img

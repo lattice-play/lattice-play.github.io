@@ -43,6 +43,11 @@ textarea,
 select {
     font-family: "Darker Grotesque", sans-serif;
     color: var(--white);
+    text-decoration: none;
+}
+
+button {
+    border: none;
 }
 
 body {

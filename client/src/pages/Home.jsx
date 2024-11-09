@@ -24,6 +24,7 @@ export default function Home() {
                             info="Continue playing tic tac toe"
                             type="standard"
                             color="var(--main-blue)"
+                            to="/TTT"
                         />
                         <Pane
                             image=""
@@ -31,6 +32,7 @@ export default function Home() {
                             info="Pending offers from slimjimcammy, nitzb, iamadog, and 2 more..."
                             type="words"
                             color="#0000FF"
+                            to="/offers"
                         />
                         <div className="panes-bottom-left">
                             <Pane
@@ -39,6 +41,7 @@ export default function Home() {
                                 info="You have 3 friends online"
                                 type="image"
                                 color="#0000FF"
+                                to="/T"
                             />
                             <Pane
                                 image="/games.jpg"
@@ -46,6 +49,7 @@ export default function Home() {
                                 info=""
                                 type="standard"
                                 color="var(--pane-blue)"
+                                to="/"
                             />
                         </div>
 
@@ -55,6 +59,7 @@ export default function Home() {
                             info="Head or Tails"
                             type="standard"
                             color="var(--light-blue)"
+                            to="/CoinFlip"
                         />
                     </div>
                 </section>

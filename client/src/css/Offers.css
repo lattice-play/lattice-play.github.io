@@ -1,0 +1,24 @@
+.offer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2em;
+}
+
+.offer-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.offer-buttons > button {
+    border: 1px solid white;
+}
+
+.offer-accept {
+    background-color: var(--main-blue);
+}
+
+.offer-reject {
+    background-color: var(--main-blue);
+}
