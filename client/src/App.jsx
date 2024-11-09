@@ -12,6 +12,7 @@ export default function App() {
     const userSession = new UserSession({ appConfig });
     const appDetails = {
         name: "Lattice",
+        icon: "/diamond.png",
     };
 
     function connectWallet() {
@@ -30,6 +31,7 @@ export default function App() {
                 setUserData(userData);
             });
         } else if (userSession.isUserSignedIn()) {
+            console.log("already signed in");
             setUserData(userSession.loadUserData());
         } else {
             console.log("hit nothing");
@@ -39,7 +41,10 @@ export default function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route
+                    path="/"
+                    element={<Home connectWallet={connectWallet} />}
+                />
                 <Route path="/TTT" element={<TTT />} />
                 <Route path="/coinflip" element={<CoinFlip />} />
                 <Route path="/offers" element={<Offers />} />

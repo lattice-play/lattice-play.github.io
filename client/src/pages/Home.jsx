@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../css/Home.css";
 import Pane from "../components/Pane.jsx";
 
-export default function Home() {
+export default function Home({ connectWallet }) {
     return (
         <div className="home-wrapper">
             <main className="hero-wrapper">
@@ -14,6 +14,9 @@ export default function Home() {
                         <a className="nav-link">Marketplace</a>
                         <a className="nav-link">Library</a>
                         <a className="nav-link">Friends</a>
+                        <a className="nav-link" onClick={connectWallet}>
+                            Sign in
+                        </a>
                     </div>
                 </nav>
                 <section className="hero">
