@@ -118,7 +118,29 @@ export default function TTT() {
         </div>
   
         {/* Restart button */}
-        <button className="restart" onClick={handleRestart}>Restart Game</button>
+         {/* Restart button with inline styles */}
+         <button
+          className="restart"
+          onClick={handleRestart}
+          style={{
+            padding: '12px 25px', // Button padding
+            fontSize: '18px', // Font size
+            backgroundColor: '#ff5722', // Orange background color
+            color: 'white', // Text color
+            border: 'none', // No border
+            borderRadius: '8px', // Rounded corners
+            cursor: 'pointer', // Pointer cursor
+            transition: 'background-color 0.3s ease', // Smooth color transition
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.backgroundColor = '#397032'; // Change to darker orange on hover
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.backgroundColor = '#478c3e'; // Reset to original color
+          }}
+        >
+          Restart Game
+        </button>
       </div>
     );
   }
