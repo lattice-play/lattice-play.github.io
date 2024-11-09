@@ -28,33 +28,33 @@ export default function Home() {
                         <Pane
                             image=""
                             header="Offers"
-                            info=""
-                            type="bold"
+                            info="Pending offers from slimjimcammy, nitzb, iamadog, and 2 more..."
+                            type="words"
                             color="#0000FF"
                         />
                         <div className="panes-bottom-left">
                             <Pane
-                                image=""
+                                image="/group.svg"
                                 header="Friends"
-                                info=""
-                                type="bold"
-                                color="var(--light-blue)"
+                                info="You have 3 friends online"
+                                type="image"
+                                color="#0000FF"
                             />
                             <Pane
-                                image=""
-                                header="Tic Tac Toe"
-                                info="test"
+                                image="/games.jpg"
+                                header="Store"
+                                info=""
                                 type="standard"
                                 color="var(--pane-blue)"
                             />
                         </div>
 
                         <Pane
-                            image=""
-                            header="Friends"
-                            info=""
-                            type="bold"
-                            color="#0000FF"
+                            image="/coin.jpg"
+                            header="Explore"
+                            info="Head or Tails"
+                            type="standard"
+                            color="var(--light-blue)"
                         />
                     </div>
                 </section>
