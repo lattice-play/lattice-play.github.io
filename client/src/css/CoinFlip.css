@@ -8,6 +8,30 @@
     background-color: #c294c3;
     height: 100vh;
     text-align: center;
+    position: relative; /* Required for absolute positioning of the color toggle button */
+  }
+  
+  /* Button to change the coin color */
+  .color-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .color-toggle:hover {
+    background-color: #45a049;
+  }
+  
+  .color-toggle:active {
+    transform: translateY(0);
   }
   
   /* Styling for the Guess buttons (Heads and Tails) */
@@ -60,34 +84,6 @@
     transform: translateY(0);
   }
   
-  /* Cursor toggle button */
-  .cursor-toggle button {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #4caf50;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .cursor-toggle button:hover {
-    background-color: #45a049;
-  }
-  
-  .cursor-toggle button:active {
-    transform: translateY(0);
-  }
-  
-  /* Apply hand emoji cursor */
-  .game-container.hand-cursor {
-    cursor: "✋";  /* Using the emoji directly as the cursor */
-  }
-  
   /* Coin flip animation */
   .coin-container {
     margin-top: 30px;
@@ -101,7 +97,7 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: #656565; /* Coin color */
+    background-color: #656565; /* Default coin color */
     display: flex;
     justify-content: center;
     align-items: center;

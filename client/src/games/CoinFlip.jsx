@@ -8,6 +8,7 @@ export default function CoinFlipGame() {
   const [gameStatus, setGameStatus] = useState("");  // Display win or lose message
   const [score, setScore] = useState(0);  // Track score
   const [flipping, setFlipping] = useState(false);  // State to manage coin flipping animation
+  const [coinColor, setCoinColor] = useState("default");  // State to track coin color
 
   // Function to handle the user's guess (Heads or Tails)
   const handleGuess = (guess) => {
@@ -37,9 +38,19 @@ export default function CoinFlipGame() {
     setGameStatus("");
   };
 
+  // Function to toggle the coin color
+  const toggleCoinColor = () => {
+    setCoinColor(coinColor === "default" ? "blue" : "default");
+  };
+
   return (
     <div className="game-container">
       <h1>Guess Heads or Tails</h1>
+
+      {/* Button to change coin color */}
+      <button className="color-toggle" onClick={toggleCoinColor}>
+        Change Coin Color
+      </button>
 
       <div className="score">
         <p>Coins: {score}</p>
@@ -55,8 +66,11 @@ export default function CoinFlipGame() {
 
       {/* Coin Flip Animation */}
       <div className="coin-container">
-        <div className={`coin ${flipping ? "flipping" : ""}`}>
-          {flipResult === "Heads" ? "" : ""}  {/* Using emojis for simplicity */}
+        <div
+          className={`coin ${flipping ? "flipping" : ""}`}
+          style={{ backgroundColor: coinColor === "blue" ? "blue" : "#656565" }} // Change color dynamically
+        >
+          {flipResult === "Heads" ? "" : ""} {/* Using emojis for simplicity */}
         </div>
       </div>
 
