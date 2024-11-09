@@ -1,0 +1,75 @@
+/* Style the toggle button */
+.golden-x-toggle {
+    position: absolute;
+    left: 20px;  /* Place the button on the left */
+    top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #9b8e18;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .golden-x-toggle:hover {
+    background-color: #FFC107;
+  }
+
+/* Ensure the game container is centered */
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .status {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 60px); /* 3 columns, each 60px wide */
+    grid-gap: 0px; /* Space between squares */
+    margin-bottom: 20px;
+  }
+  
+  .board-cell {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .square {
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    background-color: #00001c;
+    border: 3px solid #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .square:focus {
+    outline: none;
+  }
+  
+  .square.winner {
+    background-color: #4caf50; /* Highlight winner with a green background */
+    color: white;
+  }
+  
+  .restart {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
