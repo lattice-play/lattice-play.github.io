@@ -33,8 +33,12 @@ export default function Offers({ connectWallet, userData }) {
         },
     ]);
 
+    async function trade(index) {
+        // must check to see if the offer can be removed first
+        removeOffer(index);
+    }
+
     function removeOffer(index) {
-        // should do after NFT is successfully created
         setOffers((prevOffers) => prevOffers.filter((_, i) => i !== index));
     }
 
@@ -56,10 +60,16 @@ export default function Offers({ connectWallet, userData }) {
                                     to="/"
                                 />
                                 <div className="offer-buttons">
-                                    <button className="offer-accept">
+                                    <button
+                                        className="offer-accept"
+                                        onClick={async () => await trade(i)}
+                                    >
                                         Accept
                                     </button>
-                                    <button className="offer-reject">
+                                    <button
+                                        className="offer-reject"
+                                        onClick={() => removeOffer(i)}
+                                    >
                                         Reject
                                     </button>
                                 </div>
