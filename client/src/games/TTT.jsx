@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../css/TTT.css";
 import { openContractCall, UserSession } from "@stacks/connect";
-import { fetchCallReadOnlyFunction, standardPrincipalCV } from "@stacks/transactions";
+import { fetchCallReadOnlyFunction, standardPrincipalCV, stringUtf8CV, uintCV } from "@stacks/transactions";
 
 export default function TTT() {
     // The state of the game (3x3 board, current player, winner)
@@ -55,17 +55,18 @@ export default function TTT() {
         // Now check for ownership of any token from ID 1 to lastTokenId
         let ownsNFT = false;
 
-        for (let tokenId = 1; tokenId <= lastTokenId; tokenId++) {
+        for (let tokenId = 1; tokenId <= lastTokenId.value; tokenId++) {
             const ownerResult = await fetchCallReadOnlyFunction({
                 contractAddress,
                 contractName,
                 functionName: "get-owner", // Function to get the owner of the token
-                functionArgs: [tokenId],
+                functionArgs: [uintCV(tokenId)],
                 network,
+                senderAddress: "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM"
             });
-
-            if (ownerResult.value === userAddress) {
+            if (ownerResult.value.value.value === userAddress.testnet) {
                 ownsNFT = true;
+                console.log('worked')
                 break; // Exit early if we find that the user owns this NFT
             }
         }
@@ -73,8 +74,9 @@ export default function TTT() {
         setIsGoldX(ownsNFT); // Set the state for the golden X
         if (ownsNFT) {
             console.log("User owns at least one NFT.");
-            hasGold(true);
+            setHasGold(true);
         } else {
+            
             console.log("User does not own any gold NFTs.");
         }
     };
@@ -152,6 +154,8 @@ export default function TTT() {
         const functionName = "mint";
         const appDetails = { name : "Lattice", icon: "/diamond.png", }
 
+        console.log("userAddress: ", userAddress);
+
         if (userAddress[0] !== 'S') {
           console.error("Invalid Stacks address: '", userAddress);
           return;
@@ -164,6 +168,20 @@ export default function TTT() {
             functionArgs: [standardPrincipalCV(userAddress)],
             network,
             appDetails,
+            senderKey: userAddress,
+            onFinish: (data) => {
+              const { txId, txRaw, txType, stxAddress, error } = data;
+
+              if (error) {
+                  console.error("Transaction Error:", error);
+              } else {
+                  console.log("Transaction ID:", txId);
+                  console.log("Transaction Raw Data:", txRaw);
+                  console.log("Transaction Type:", txType);
+                  console.log("Sender Stacks Address:", stxAddress);
+                  // You can add more checks or handle the transaction result here
+              }
+          },
         };
 
         try {
