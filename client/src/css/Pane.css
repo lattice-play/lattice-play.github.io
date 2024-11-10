@@ -22,6 +22,8 @@
     object-fit: cover;
     top: 1.5em;
     left: 1.5em;
+    max-width: 60%;
+    max-height: 60%;
 }
 
 .pane-hidden-image {

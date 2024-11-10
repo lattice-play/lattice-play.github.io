@@ -47,7 +47,15 @@ export default function App() {
                 />
                 <Route path="/TTT" element={<TTT />} />
                 <Route path="/coinflip" element={<CoinFlip />} />
-                <Route path="/offers" element={<Offers />} />
+                <Route
+                    path="/offers"
+                    element={
+                        <Offers
+                            connectWallet={connectWallet}
+                            userData={userData}
+                        />
+                    }
+                />
             </Routes>
         </BrowserRouter>
     );
