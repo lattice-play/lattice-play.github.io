@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../css/TTT.css";
 import { openContractCall, UserSession } from "@stacks/connect";
-import { fetchCallReadOnlyFunction } from "@stacks/transactions";
+import { fetchCallReadOnlyFunction, standardPrincipalCV } from "@stacks/transactions";
 
 export default function TTT() {
     // The state of the game (3x3 board, current player, winner)
@@ -146,19 +146,24 @@ export default function TTT() {
         const network = "devnet";
         const userSession = new UserSession({ network });
         const userData = await userSession.loadUserData();
-        const userAddress = userData.profile.stxAddress; // Get the user's address
+        const userAddress = userData.profile.stxAddress.testnet; // Get the user's address
         const contractAddress = "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM";
         const contractName = "contracts_ttt_clar";
         const functionName = "mint";
-        const functionArgs = [userAddress];
+        const appDetails = { name : "Lattice", icon: "/diamond.png", }
+
+        if (userAddress[0] !== 'S') {
+          console.error("Invalid Stacks address: '", userAddress);
+          return;
+      }
 
         const options = {
             contractAddress,
             contractName,
             functionName,
-            functionArgs: functionArgs,
+            functionArgs: [standardPrincipalCV(userAddress)],
             network,
-            senderAddress: "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM",
+            appDetails,
         };
 
         try {
