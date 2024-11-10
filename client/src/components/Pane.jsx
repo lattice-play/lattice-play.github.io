@@ -5,7 +5,7 @@ export default function Pane({ image, header, info, type, color, to }) {
     const [isImage, setIsImage] = useState(false);
 
     useEffect(() => {
-        setIsImage(type == "image");
+        setIsImage(type === "image");
     }, []);
 
     function getStylingForType(type) {

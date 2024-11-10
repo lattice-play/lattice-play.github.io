@@ -1,31 +1,60 @@
+import { useState } from "react";
 import "../css/Offers.css";
+import Navbar from "../components/Navbar.jsx";
+import Pane from "../components/Pane.jsx";
 
-export default function Offers() {
-    let offers = [
+export default function Offers({ connectWallet, userData }) {
+    const [offers, setOffers] = useState([
         {
-            from: "slimjimcammy",
-            toYou: "Golden Heart",
-            fromYou: "Blue Coin",
+            bid: {
+                bidder: "slimjimcammy",
+                offer: "Golden Heart",
+                game: "Tic Tac Toe",
+                img: "/heart.png",
+            },
+            ask: {
+                item: "Blue Coin",
+                game: "Coin Flip",
+                img: "/coin.webp",
+            },
         },
         {
-            from: "iamadog",
-            toYou: "Silver Slash",
-            fromYou: "Blue Coin",
+            bid: {
+                bidder: "iamadog",
+                offer: "Silver Slash",
+                game: "Tic Tac Toe",
+                img: "/x.png",
+            },
+            ask: {
+                item: "Blue Coin",
+                game: "Coin Flip",
+                img: "/coin.webp",
+            },
         },
-    ];
+    ]);
+
+    function removeOffer(index) {
+        // should do after NFT is successfully created
+        setOffers((prevOffers) => prevOffers.filter((_, i) => i !== index));
+    }
 
     return (
         <div className="offers-page-wrapper">
-            <h1 className="offers-header">Offers</h1>
             <div className="offers-wrapper">
+                <Navbar connectWallet={connectWallet} userData={userData} />
                 <h1 className="offers-pending-header">Pending Trades</h1>
                 <div className="offers">
                     {offers.map((o, i) => {
                         return (
                             <div className="offer">
-                                <h1 className="offering-party">{o.from}</h1>
-                                <p className="offer-item">Wants: {o.fromYou}</p>
-                                <p className="offer-item">For: {o.toYou}</p>
+                                <Pane
+                                    image={o.bid.img}
+                                    header={`You get`}
+                                    info={`${o.bid.offer} from ${o.bid.game}`}
+                                    type="image"
+                                    color="#0000FF"
+                                    to="/"
+                                />
                                 <div className="offer-buttons">
                                     <button className="offer-accept">
                                         Accept
@@ -34,6 +63,14 @@ export default function Offers() {
                                         Reject
                                     </button>
                                 </div>
+                                <Pane
+                                    image={o.ask.img}
+                                    header={`${o.bid.bidder} gets`}
+                                    info={`${o.ask.item} from ${o.ask.game}`}
+                                    type="image"
+                                    color="#0000FF"
+                                    to="/"
+                                />
                             </div>
                         );
                     })}

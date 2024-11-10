@@ -1,24 +1,67 @@
-.offer {
+.offers-page-wrapper {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.offers-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0 1em;
+}
+
+.offers {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 1em 0;
     gap: 2em;
 }
 
+.offer {
+    display: grid;
+    grid-template-columns: 1fr 0.25fr 1fr;
+    gap: 2em;
+    min-height: 300px;
+    height: 100%;
+}
+
 .offer-buttons {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 10px;
+    justify-content: center;
+    width: 100%;
 }
 
 .offer-buttons > button {
-    border: 1px solid white;
+    font-weight: 700;
+    font-size: 25px;
+    border-radius: 15px;
+}
+
+.offer-buttons > button:hover {
+    color: var(--main-blue);
+}
+
+.offer-accept:hover {
+    background-color: green;
 }
 
 .offer-accept {
+    border: 4px solid green;
     background-color: var(--main-blue);
+    color: green;
+}
+
+.offer-reject:hover {
+    background-color: red;
 }
 
 .offer-reject {
+    border: 4px solid red;
     background-color: var(--main-blue);
+    color: red;
 }
