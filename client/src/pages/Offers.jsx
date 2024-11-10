@@ -64,7 +64,7 @@ export default function Offers({ connectWallet, userData }) {
             contractAddress,
             contractName,
             functionName,
-            functionArgs: [uintCV(my_new_token), standardPrincipalCV(bidderAddress), standardPrincipalCV(userAddress)],
+            functionArgs: [uintCV(my_new_token), standardPrincipalCV(userAddress), standardPrincipalCV(userAddress)], // for now, user trades with themselves
             network,
             senderAddress: "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM",
         };
@@ -72,7 +72,7 @@ export default function Offers({ connectWallet, userData }) {
             contractAddress,
             contractName,
             functionName,
-            functionArgs: [uintCV(their_new_token), standardPrincipalCV(userAddress), standardPrincipalCV(bidderAddress)],
+            functionArgs: [uintCV(their_new_token), standardPrincipalCV(userAddress), standardPrincipalCV(userAddress)],
             network,
             senderAddress: "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM",
         }

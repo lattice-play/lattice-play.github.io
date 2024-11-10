@@ -2,7 +2,7 @@ export default function Navbar({ connectWallet, userData }) {
     return (
         <nav className="navbar">
             <div className="nav-left">
-                <h1 className="logo">LATTICE PLAY</h1>
+                <a className="logo" href="/">LATTICE</a>
             </div>
             <div className="nav-right">
                 <a className="nav-link">Marketplace</a>

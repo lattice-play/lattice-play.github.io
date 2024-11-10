@@ -1,12 +1,14 @@
 import { useState } from "react";
 import "../css/Home.css";
 import Pane from "../components/Pane.jsx";
+import Navbar from "../components/Navbar.jsx";
 
-export default function Home({ connectWallet }) {
+export default function Home({ connectWallet, userData }) {
     return (
         <div className="home-wrapper">
             <main className="hero-wrapper">
-                <nav className="navbar">
+                <Navbar connectWallet={connectWallet} />
+                { /* <nav className="navbar">
                     <div className="nav-left">
                         <h1 className="logo">LATTICE PLAY</h1>
                     </div>
@@ -18,7 +20,7 @@ export default function Home({ connectWallet }) {
                             Sign in
                         </a>
                     </div>
-                </nav>
+                </nav> */}
                 <section className="hero">
                     <div className="panes-wrapper">
                         <Pane

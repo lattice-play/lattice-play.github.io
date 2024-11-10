@@ -43,7 +43,7 @@ export default function App() {
             <Routes>
                 <Route
                     path="/"
-                    element={<Home connectWallet={connectWallet} />}
+                    element={<Home connectWallet={connectWallet} userData={userData}/>}
                 />
                 <Route path="/TTT" element={<TTT />} />
                 <Route path="/coinflip" element={<CoinFlip />} />
