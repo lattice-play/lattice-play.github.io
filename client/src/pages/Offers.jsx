@@ -11,6 +11,7 @@ export default function Offers({ connectWallet, userData }) {
             bid: {
                 bidder: "slimjimcammy",
                 offer: "Golden Heart",
+                game: "Tic Tac Toe",
                 contract: "contracts_ttt_clar",
                 address: "ST2JHG361ZXG51QTKY2NQCVBPPRRE2KZB1HR05NNC", // temporarily hard coded
                 token_id: 2, // temporarily hard coded
